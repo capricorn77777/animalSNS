@@ -1,23 +1,21 @@
+<!-- resources/views/home.blade.php -->
+
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <h1>Timeline</h1>
+    @auth
+        <!-- ログインユーザーの場合 -->
+        <a href="{{ route('posts.create') }}">投稿する</a>
+    @else
+        <!-- 未ログインユーザーの場合 -->
+        <a href="{{ route('login') }}">ログイン</a>
+        <a href="{{ route('register') }}">登録</a>
+    @endauth
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <ul>
+        @foreach($posts as $post)
+            <li><a href="{{ route('posts.show', $post->id) }}">{{ $post->content }}</a></li>
+        @endforeach
+    </ul>
 @endsection

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,3 +53,9 @@ Route::get('/create', [PostController::class, 'create'])->name('posts.create');
 
 // 投稿処理
 Route::post('/create', [PostController::class, 'store'])->name('posts.store');
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+});
