@@ -11,6 +11,7 @@ class post extends Model
     protected $fillable = [
         'user_id',
         'content',
+        'animal_id', // 追加
     ];
 
     public function user()

@@ -20,6 +20,32 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
+    // ログイン処理
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // ログイン成功時の処理
+            return redirect('/home');
+        } else {
+            // ログイン失敗時の処理
+            return redirect()->back()->withErrors(['email' => '認証に失敗しました。']);
+        }
+    }
+
+    // ログアウト処理
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+
     /**
      * Where to redirect users after login.
      *
