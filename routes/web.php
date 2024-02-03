@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,16 @@ Route::get('/', function () {
 Route::get('/posts/{id}', [PostController::class, 'showPost'])->name('posts.show');
 
 Route::get('/timeline', [PostController::class, 'showTimeline']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+Route::post('/register', [RegistrationController::class, 'register']);
