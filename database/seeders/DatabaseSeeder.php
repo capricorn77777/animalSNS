@@ -31,10 +31,6 @@ class DatabaseSeeder extends Seeder
         // アニマルシーダー
         \App\Models\Animal::factory(10)->create();
 
-        $this->call([
-            PostSeeder::class,
-            CommentSeeder::class,
-            LikeSeeder::class,
-        ]);
+
     }
 }
