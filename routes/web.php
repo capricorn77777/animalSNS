@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts/{id}', [PostController::class, 'showPost']);
+Route::get('/posts/{id}', [PostController::class, 'showPost'])->name('posts.show');
+
+Route::get('/timeline', [PostController::class, 'showTimeline']);

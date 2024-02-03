@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     //
+    public function showTimeline()
+    {
+        $posts = Post::all();
+        return view('posts.timeline', compact('posts'));
+    }
     public function showPost($id)
     {
         $post = Post::with('comments')->find($id);
