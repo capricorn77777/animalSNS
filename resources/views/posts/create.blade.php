@@ -4,6 +4,7 @@
     @csrf
 
    
+    
 
     <label for="content">Content:</label>
     <textarea name="content" required></textarea>
