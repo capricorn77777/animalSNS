@@ -6,6 +6,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -63,3 +64,5 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/public', [PublicController::class, 'index'])->middleware('web');
+
+Route::get('/profile/{user}', [ProfileController::class,'show'])->name('profile.show');
