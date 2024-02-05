@@ -21,8 +21,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        // 他のミドルウェア
-        \App\Http\Middleware\GuestMiddleware::class,
+  
     ];
 
     /**
@@ -32,18 +31,26 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
+            // guest用ミドルウェア
+            //\App\Http\Middleware\GuestMiddleware::class,
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+          
         ],
 
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+
+        'no_csrf_check' => [
+            // /no-csrf-checkパスに対してVerifyCsrfTokenを無効化
+            \App\Http\Middleware\VerifyCsrfToken::class,
         ],
     ];
 
@@ -67,4 +74,12 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
+
+    protected $except = [
+        // GuestMiddlewareを除外したいURLを指定
+        'guest_middleware/*',
+        'animals/*'
+    ];
 }
+
+

@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AnimalController;
 
 
 /*
@@ -66,3 +67,10 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/public', [PublicController::class, 'index'])->middleware('web');
 
 Route::get('/profile/{user}', [ProfileController::class,'show'])->name('profile.show');
+
+Route::get('/animals/{animal}/edit', [AnimalController::class,'edit'])->name('animals.edit');
+
+Route::put('/animals/{animal}', [AnimalController::class,'update'])->name('animals.update');
+
+
+

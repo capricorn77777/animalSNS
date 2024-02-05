@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Models\Animal;
 class RouteServiceProvider extends ServiceProvider
 {
     protected $namespace = 'App\Http\Controllers';
@@ -43,5 +44,8 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot();
 
         Route::model('user', User::class);
+
+        
+        Route::model('animal', Animal::class);
     }
 }
