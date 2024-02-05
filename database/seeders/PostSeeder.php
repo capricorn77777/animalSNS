@@ -15,11 +15,9 @@ class PostSeeder extends Seeder
     {
 
         //
-        
-        Post::factory()->count(10)->create([
-            'user_id' => \App\Models\User::inRandomOrder()->first()->id,
-            'post_id' => \App\Models\Post::inRandomOrder()->first()->id,
-        ]);
-
+         // ユーザーごとに10個の投稿を作成
+         User::all()->each(function (User $user) {
+            Post::factory()->count(10)->create(['user_id' => $user->id]);
+         });
     }
 }

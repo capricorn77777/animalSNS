@@ -5,6 +5,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PublicController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -59,3 +61,5 @@ Route::post('/create', [PostController::class, 'store'])->name('posts.store');
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
+
+Route::get('/public', [PublicController::class, 'index'])->middleware('web');
