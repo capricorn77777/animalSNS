@@ -1,6 +1,6 @@
 <!-- resources/views/animals/edit.blade.php -->
 
-<form action="{{ route('animals.update', $animal) }}" method="PUT" enctype="multipart/form-data">
+<form action="{{ route('animals.update', $animal) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 

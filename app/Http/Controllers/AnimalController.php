@@ -36,6 +36,8 @@ class AnimalController extends Controller
             ]);
         }
 
-        return redirect()->route('animals.show', $animal);
+        //return redirect()->route('animals.show', $animal);
+        return redirect()->back()->with('success', 'Animal updated successfully');
+
     }
 }
