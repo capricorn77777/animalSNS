@@ -40,6 +40,10 @@
                             <label for="birthday">Birthday:</label>
                             <input type="date" name="birthday" required>
 
+                            <!-- プロフィール画像のフォームフィールド -->
+                            <label for="profile_image">Profile Image:</label>
+                            <input type="file" name="profile_image" accept="image/*">
+
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
