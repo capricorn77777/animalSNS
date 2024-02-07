@@ -22,9 +22,9 @@
             <div>
                 <!-- プロフィール画像 -->
                 @if ($post->user->profile_image_url)
-                    <img src="{{ $post->user->profile_image_url }}" alt="プロフィール画像">
+                    <img src="{{ $post->user->profile_image_url }} " alt="プロフィール画像">
                 @else
-                    <img src="{{ asset('images/1707116115.png') }}" alt="プロフィール画像">
+                    <img src="{{ asset('images/1707116115.png') }}" alt="プロフィール画像" width="80px">
                 @endif
 
                 <!-- 動物の種族名 -->
