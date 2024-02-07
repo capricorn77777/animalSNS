@@ -7,6 +7,7 @@
     @auth
         <!-- ログインユーザーの場合 -->
         <a href="{{ route('posts.create') }}">投稿する</a>
+        <a href="{{ route('profile.show', ['user' => Auth::id()]) }}">プロフィール</a>
     @else
         <!-- 未ログインユーザーの場合 -->
         <a href="{{ route('login') }}">ログイン</a>
