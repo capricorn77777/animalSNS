@@ -25,27 +25,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//投稿閲覧
 Route::get('/posts/{id}', [PostController::class, 'showPost'])->name('posts.show');
 
+//タイムライン表示画面。homeと重複
 Route::get('/timeline', [PostController::class, 'showTimeline']);
 
+//Authの設定
 Auth::routes();
 
+//ホーム画面の表示
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
+//会員登録ページ
 Route::post('/register', [RegistrationController::class, 'register']);
-
-
-
-// ログイン画面の表示
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-
-
 
 // ログイン画面の表示
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -58,18 +51,20 @@ Route::get('/create', [PostController::class, 'create'])->name('posts.create');
 // 投稿処理
 Route::post('/create', [PostController::class, 'store'])->name('posts.store');
 
-
-
+//authをアクセス時呼び出し
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
+//ゲストユーザーの閲覧ページ
 Route::get('/public', [PublicController::class, 'index'])->middleware('web');
 
+//userプロフィール閲覧
 Route::get('/profile/{user}', [ProfileController::class,'show'])->name('profile.show');
 
+//アニマル編集フォーム
 Route::get('/animals/{animal}/edit', [AnimalController::class,'edit'])->name('animals.edit');
-
+//アニマルデータのPUT
 Route::put('/animals/{animal}', [AnimalController::class,'update'])->name('animals.update');
 
 
