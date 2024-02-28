@@ -9,7 +9,7 @@
             <!-- ログインユーザーの場合 -->
             <div class="mb-4">
                 <a class="btn btn-primary me-2" href="{{ route('posts.create') }}">投稿する</a>
-                <a class="btn btn-secondary me-2" href="{{ route('profile.show', ['user' => Auth::id()]) }}">プロフィール</a>
+                <!-- <a class="btn btn-secondary me-2" href="{{ route('profile.show', ['user' => Auth::id()]) }}">プロフィール</a> -->
                 <a class="btn btn-info" href="{{ route('animals.edit', ['animal' => $user->animals->first()->id]) }}">animal</a>
             </div>
         @else
