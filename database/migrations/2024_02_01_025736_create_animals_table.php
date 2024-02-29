@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('species');
             $table->string('gender');
             $table->date('birthday');
+            $table->string('profile_image')->nullable(); // プロフィール画像のファイルパスを保存するフィールドを追加
             $table->timestamps();
         });
     }

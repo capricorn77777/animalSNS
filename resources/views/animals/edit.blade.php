@@ -11,7 +11,7 @@
     <input type="text" name="gender" value="{{ $animal->gender }}" required>
 
     <label for="profile_image">Profile Image:</label>
-    <input type="file" name="profile_image">
+    <input type="file" name="profile_image" accept="image/*">
 
     <button type="submit">Update</button>
 </form>

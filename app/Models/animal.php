@@ -14,6 +14,7 @@ class animal extends Model
         'species',
         'gender',
         'birthday',
+        'profile_image'
     ];
 
     

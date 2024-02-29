@@ -10,7 +10,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
                             <!-- ユーザー情報のフォームフィールド -->
@@ -41,7 +41,7 @@
                             <input type="date" name="birthday" required>
 
                             <!-- プロフィール画像のフォームフィールド -->
-                            <label for="profile_image">Profile Image:</label>
+                            <label for="profile_image">Profile Image2:</label>
                             <input type="file" name="profile_image" accept="image/*">
 
                             <div class="form-group row mb-0">
